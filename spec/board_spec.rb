@@ -30,17 +30,13 @@ describe Board do
     expect(welcome_string).to eq("Ready for a challenge?")
   end
 
-  # it 'prints the board' do
-  #   board = Board.new
-  #   board.print_board
+  it 'prints the board' do
+    board = Board.new
 
-  #   expect(board.board).to eq(ABCDEFG
-  #     .......
-  #     .......
-  #     .......
-  #     .......
-  #     .......
-  #     .......")
-  # end 
+    puts board.print_board
+
+    expect(board.print_board).to eq(
+      "ABCDEFG\n.......\n.......\n.......\n.......\n.......\n.......\n")
+  end 
 
 end

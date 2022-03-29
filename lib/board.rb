@@ -18,17 +18,19 @@ class Board
      "Ready for a challenge?"
   end 
 
-  # def print_board
-  #   @board.keys.each do |key|
-  #     print key
-  #   end
-  #   puts
-  #   7.times do |index|
-  #     @board.keys.each do |key|
-  #       print @board[key][index]
-  #     end
-  #     puts 
-  #   end
-  # end 
+  def print_board
+    output = ""
+    @board.keys.each do |key|
+      output << key.to_s
+    end
+    output << "\n"
+    6.times do |index|
+      @board.keys.each do |key|
+        output << @board[key][index]
+      end
+      output << "\n"
+    end
+    return output
+  end 
 
 end
