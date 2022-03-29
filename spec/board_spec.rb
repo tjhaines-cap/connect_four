@@ -23,9 +23,12 @@ describe Board do
       })
   end
 
-  # it 'has a welcome message' do
+  it 'has a welcome message' do
+    board = Board.new
+    welcome_string = board.welcome_message
 
-  # end
+    expect(welcome_string).to eq("Ready for a challenge?")
+  end
 
   # it 'prints the board' do
   #   board = Board.new
