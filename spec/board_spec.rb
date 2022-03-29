@@ -12,7 +12,15 @@ describe Board do
   it 'has readable attributes' do
     board = Board.new
 
-    expect(board.board).to eq({"A" => [".", ".", ".", ".", ".", "."], "B" => [".", ".", ".", ".", ".", "."], "C" => [".", ".", ".", ".", ".", "."], "D" => [".", ".", ".", ".", ".", "."], "E" => [".", ".", ".", ".", ".", "."], "F" => [".", ".", ".", ".", ".", "."], "G" => [".", ".", ".", ".", ".", "."]})
+    expect(board.board).to eq({
+      A: [".", ".", ".", ".", ".", "."], 
+      B: [".", ".", ".", ".", ".", "."], 
+      C: [".", ".", ".", ".", ".", "."], 
+      D: [".", ".", ".", ".", ".", "."], 
+      E: [".", ".", ".", ".", ".", "."], 
+      F: [".", ".", ".", ".", ".", "."], 
+      G: [".", ".", ".", ".", ".", "."]
+      })
   end
 
   # it 'has a welcome message' do
@@ -23,7 +31,7 @@ describe Board do
   #   board = Board.new
   #   board.print_board
 
-  #   expect(board.board).to eq("ABCDEFG
+  #   expect(board.board).to eq(ABCDEFG
   #     .......
   #     .......
   #     .......
