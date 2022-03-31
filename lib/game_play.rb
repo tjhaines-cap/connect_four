@@ -34,8 +34,8 @@ class GamePlay
       computer_column = valid_symbols[rand(6)]
         until @connect_board.column_available?(computer_column)
           computer_column = valid_symbols[rand(6)]
-        end 
+        end
       return computer_column
-  end 
+  end
 
 end

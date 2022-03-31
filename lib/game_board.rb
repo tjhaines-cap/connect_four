@@ -33,4 +33,22 @@ class GameBoard
    return @board.keys.include?(column) && @board[column].include?(".")
   end
 
+  def place_piece(column, chip)
+    row = 0
+    if @board[column][5] == "."
+      row = 5
+    else
+      index = 0
+      @board[column].each do |cell|
+        index += 1
+        if (cell != ".")
+          break
+        end
+      end
+      row = index - 2
+      puts row
+    end
+    @board[column][row] = chip
+  end
+
 end
