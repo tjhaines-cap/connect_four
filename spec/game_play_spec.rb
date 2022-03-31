@@ -14,9 +14,11 @@ describe GamePlay do
 
   # it 'allows player to place an individual piece' do
   #   connect_board = GameBoard.new
-  #   play = GamePlay.new(connect_board)
+  #   play = GamePlay.new(connect_board, game_piece)
   #   play.start
   #   binding.pry
+
+  #   expect(player1.place_game_piece).to eq(A[5]) <- like bingo
   # end
 
 end
