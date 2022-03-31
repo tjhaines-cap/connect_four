@@ -14,5 +14,11 @@ class GamePlay
     # puts input
   end
 
+  def select_computer_column
+    column_symbols = [:A, :B, :C, :D, :E, :F, :G]
+    computer_column = column_symbols[rand(6)]
+    return computer_column
+  end
+
 
 end
