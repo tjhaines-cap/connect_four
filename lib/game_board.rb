@@ -14,10 +14,6 @@ class GameBoard
     }
   end
 
-  def welcome_message
-     "Ready for a challenge?"
-  end
-
   def print_board
     output = ""
     @board.keys.each do |key|
@@ -31,6 +27,10 @@ class GameBoard
       output << "\n"
     end
     return output
+  end
+
+  def column_available?(column)
+   return @board.keys.include?(column) && @board[column].include?(".")
   end
 
 end

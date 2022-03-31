@@ -39,4 +39,12 @@ describe GameBoard do
       "ABCDEFG\n.......\n.......\n.......\n.......\n.......\n.......\n")
   end
 
+  it 'checks column availability' do
+    board = GameBoard.new
+
+    expect(board.column_available?(:A)).to eq true
+    expect(board.column_available?(:Z)).to eq false
+    expect(board.column_available?("B")).to eq false
+  end
+
 end
