@@ -14,10 +14,6 @@ class GameBoard
     }
   end
 
-  def welcome_message
-     "Ready for a challenge?"
-  end
-
   def print_board
     output = ""
     @board.keys.each do |key|

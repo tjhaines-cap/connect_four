@@ -3,13 +3,15 @@ require 'pry'
 
 class GamePlay
 
-  attr_reader :connect_board
+  attr_reader :connect_board, :welcome_message
 
   def initialize(connect_board)
     @connect_board = connect_board
+    @welcome_message = "Ready for a challenge?"
   end
 
   def start
+    p @welcome_message
     p get_player_column
     p select_computer_column
     # puts "Choose a column A-G by typing out the associated letter"

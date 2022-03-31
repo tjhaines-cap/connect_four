@@ -5,11 +5,12 @@ require 'pry'
 
 describe GamePlay do
 
-  it 'exists' do
+  it 'exists and has readable attributes' do
     connect_board = GameBoard.new
     play = GamePlay.new(connect_board)
 
     expect(play).to be_an_instance_of(GamePlay)
+    expect(play.welcome_message).to eq("Ready for a challenge?")
   end
 
   it 'can create valid computer input' do
@@ -23,14 +24,4 @@ describe GamePlay do
     expect(valid_symbols).to include(computer_column)
   end
 
-  it 'can check for user validity' do
-    connect_board = GameBoard.new
-    play = GamePlay.new(connect_board)
-
-    player_column = play.get_player_column
-
-    valid_symbols = [:A, :B, :C, :D, :E, :F, :G]
-
-    expect(valid_symbols).to include(player_column)
-  end 
 end
