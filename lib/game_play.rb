@@ -10,17 +10,21 @@ class GamePlay
   end
 
   def start
-    p get_user_input
+    p get_player_column
     p select_computer_column
     # puts "Choose a column A-G by typing out the associated letter"
     # input = gets.chomp.to_sym
     # puts input
   end
 
-  def get_user_input
+  def get_player_column
     puts "Choose a column A-G by typing out the associated letter"
-    user_input = gets.chomp.to_sym
-    return user_input
+    player_column = gets.chomp.to_sym
+    until @connect_board.column_available?(player_column)
+      p "Invalid input entered, try again!"
+      player_column = gets.chomp.to_sym
+    end
+    return player_column
   end
 
   def select_computer_column
@@ -30,7 +34,6 @@ class GamePlay
           computer_column = valid_symbols[rand(6)]
         end 
       return computer_column
-  end
-
+  end 
 
 end

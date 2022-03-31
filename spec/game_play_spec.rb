@@ -15,19 +15,22 @@ describe GamePlay do
   it 'can create valid computer input' do
     connect_board = GameBoard.new
     play = GamePlay.new(connect_board)
+
     computer_column = play.select_computer_column
+
     valid_symbols = [:A, :B, :C, :D, :E, :F, :G]
 
     expect(valid_symbols).to include(computer_column)
   end
 
-  # xit 'can check for user validity' do
-  #   connect_board = GameBoard.new
-  #   play = GamePlay.new(connect_board)
-  #   computer_column = play.select_computer_column
-  #   valid_symbols = [:A, :B, :C, :D, :E, :F, :G]
-  #   expect(valid_symbols).to include(computer_column)
-  #   expect(valid_symbols).to eq([A:][5])
+  it 'can check for user validity' do
+    connect_board = GameBoard.new
+    play = GamePlay.new(connect_board)
 
-  # end 
+    player_column = play.get_player_column
+
+    valid_symbols = [:A, :B, :C, :D, :E, :F, :G]
+
+    expect(valid_symbols).to include(player_column)
+  end 
 end
