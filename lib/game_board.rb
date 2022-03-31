@@ -33,4 +33,8 @@ class GameBoard
     return output
   end
 
+  def column_available?(column)
+   return @board.keys.include?(column) && @board[column].include?(".")
+  end
+
 end
