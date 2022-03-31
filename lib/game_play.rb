@@ -1,4 +1,5 @@
 require './lib/game_board'
+require 'pry'
 
 class GamePlay
 
@@ -24,8 +25,11 @@ class GamePlay
 
   def select_computer_column
     column_symbols = [:A, :B, :C, :D, :E, :F, :G]
-    computer_column = column_symbols[rand(6)]
-    return computer_column
+      computer_column = column_symbols[rand(6)]
+        until column_symbols.include?(computer_column)
+          computer_column = column_symbols[rand(6)]
+        end 
+      return computer_column
   end
 
 
