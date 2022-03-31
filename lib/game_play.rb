@@ -24,10 +24,10 @@ class GamePlay
   end
 
   def select_computer_column
-    column_symbols = [:A, :B, :C, :D, :E, :F, :G]
-      computer_column = column_symbols[rand(6)]
-        until column_symbols.include?(computer_column)
-          computer_column = column_symbols[rand(6)]
+    valid_symbols = [:A, :B, :C, :D, :E, :F, :G]
+      computer_column = valid_symbols[rand(6)]
+        until @connect_board.column_available?(computer_column)
+          computer_column = valid_symbols[rand(6)]
         end 
       return computer_column
   end
