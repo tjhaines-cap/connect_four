@@ -1,42 +1,42 @@
 require 'rspec'
-require './lib/board'
+require './lib/game_board'
 
-describe Board do
+describe GameBoard do
 
   it 'exists' do
-    board = Board.new
+    board = GameBoard.new
 
-    expect(board).to be_an_instance_of(Board)
+    expect(board).to be_an_instance_of(GameBoard)
   end
 
   it 'has readable attributes' do
-    board = Board.new
+    board = GameBoard.new
 
     expect(board.board).to eq({
-      A: [".", ".", ".", ".", ".", "."], 
-      B: [".", ".", ".", ".", ".", "."], 
-      C: [".", ".", ".", ".", ".", "."], 
-      D: [".", ".", ".", ".", ".", "."], 
-      E: [".", ".", ".", ".", ".", "."], 
-      F: [".", ".", ".", ".", ".", "."], 
+      A: [".", ".", ".", ".", ".", "."],
+      B: [".", ".", ".", ".", ".", "."],
+      C: [".", ".", ".", ".", ".", "."],
+      D: [".", ".", ".", ".", ".", "."],
+      E: [".", ".", ".", ".", ".", "."],
+      F: [".", ".", ".", ".", ".", "."],
       G: [".", ".", ".", ".", ".", "."]
       })
   end
 
   it 'has a welcome message' do
-    board = Board.new
+    board = GameBoard.new
     welcome_string = board.welcome_message
 
     expect(welcome_string).to eq("Ready for a challenge?")
   end
 
   it 'prints the board' do
-    board = Board.new
+    board = GameBoard.new
 
     puts board.print_board
 
     expect(board.print_board).to eq(
       "ABCDEFG\n.......\n.......\n.......\n.......\n.......\n.......\n")
-  end 
+  end
 
 end
