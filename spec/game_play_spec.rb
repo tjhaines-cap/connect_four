@@ -20,11 +20,4 @@ describe GamePlay do
     expect(valid_symbols).to include(computer_column)
   end
 
-  # it 'allows player to place an individual piece' do
-  #   connect_board = GameBoard.new
-  #   play = GamePlay.new(connect_board)
-  #   play.start
-  #   binding.pry
-  # end
-
 end
