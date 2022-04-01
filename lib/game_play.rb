@@ -12,11 +12,16 @@ class GamePlay
 
   def start
     p @welcome_message
-    p get_player_column
-    p select_computer_column
-    # puts "Choose a column A-G by typing out the associated letter"
-    # input = gets.chomp.to_sym
-    # puts input
+    21.times do
+      player_column = get_player_column
+      @connect_board.place_piece(player_column, "X")
+      puts @connect_board.print_board
+      #check for winner
+      computer_column = select_computer_column
+      @connect_board.place_piece(computer_column, "O")
+      puts @connect_board.print_board
+      #check for winner
+    end
   end
 
   def get_player_column
