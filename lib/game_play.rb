@@ -38,9 +38,9 @@ class GamePlay
       return computer_column
   end 
 
-  def update_board(computer_choice)
-      while @connect_board.board[computer_choice][-1] == "."
-        @connect_board.board[computer_choice][-1] = "X"
+  def update_board(column_choice, chip)
+      while @connect_board.board[column_choice][-1] == "."
+        @connect_board.board[column_choice][-1] = chip
       end
    puts @connect_board.print_board
   end 

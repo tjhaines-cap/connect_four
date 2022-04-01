@@ -30,8 +30,8 @@ describe GamePlay do
 
     computer_choice = play.select_computer_column
     
-    connect_board = play.update_board(computer_choice)
+    connect_board = play.update_board(computer_choice, "O")
 
-    expect(play.connect_board.board[computer_choice][5]).to eq("X")
+    expect(play.connect_board.board[computer_choice][5]).to eq("O")
   end 
 end
