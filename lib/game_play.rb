@@ -39,10 +39,18 @@ class GamePlay
   end 
 
   def update_board(column_choice, chip)
-      while @connect_board.board[column_choice][-1] == "."
-        @connect_board.board[column_choice][-1] = chip
-      end
-   puts @connect_board.print_board
+    lowest_chip_index = @connect_board.board[column_choice].find_index do |row_value|
+      row_value != "."
+    end
+    if lowest_chip_index == nil
+      @connect_board.board[column_choice][-1] = chip
+    elsif lowest_chip_index == 0 #third argument? && 
+      p "Column full!"
+    else
+      lowest_open_index = lowest_chip_index - 1
+      @connect_board.board[column_choice][lowest_open_index] = chip
+    end
+    puts @connect_board.print_board
   end 
 
 end
