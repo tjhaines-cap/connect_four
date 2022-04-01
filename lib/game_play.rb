@@ -38,15 +38,11 @@ class GamePlay
       return computer_column
   end 
 
-  def update_board
-    select_computer_column
-    if last_available == @connect_board[column] == "X" || "O"
-      last_available -= 1 
-    @connect_board.keys.each do |key|
-      until @connect_board.key.last_available == "."
-        @connect_board.key = "X"
-    end
-    @connect_board
+  def update_board(computer_choice)
+      while @connect_board.board[computer_choice][-1] == "."
+        @connect_board.board[computer_choice][-1] = "X"
+      end
+   puts @connect_board.print_board
   end 
 
 end
