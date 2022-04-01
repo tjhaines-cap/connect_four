@@ -24,4 +24,14 @@ describe GamePlay do
     expect(valid_symbols).to include(computer_column)
   end
 
+  it 'can update board when player chooses column' do
+    connect_board = GameBoard.new
+    play = GamePlay.new(connect_board)
+
+    play.select_computer_column
+    last_available = @connect_board[keys][-1] #.last could also possibly work
+    connect_board = play.update_board
+
+    expect(play.connect_board[:A][5]).to eq("X")
+  end 
 end

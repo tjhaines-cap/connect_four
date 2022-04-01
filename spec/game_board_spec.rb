@@ -23,13 +23,6 @@ describe GameBoard do
       })
   end
 
-  it 'has a welcome message' do
-    board = GameBoard.new
-    welcome_string = board.welcome_message
-
-    expect(welcome_string).to eq("Ready for a challenge?")
-  end
-
   it 'prints the board' do
     board = GameBoard.new
 
