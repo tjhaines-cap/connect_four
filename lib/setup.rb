@@ -17,6 +17,8 @@ attr_reader :welcome_message, :new_game
            until userin == 'q'
             if userin == 'p'
                 @new_game.start
+                p "Enter p to play. Enter q to quit."
+                userin = gets.chomp.downcase
             else 
                 p "Try again! Enter p to play. Enter q to quit."
                 userin = gets.chomp.downcase
