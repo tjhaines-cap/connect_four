@@ -51,4 +51,22 @@ class GameBoard
     @board[column][row_element] = chip
   end
 
+  def winner?(chip)
+    @board.keys.each do |column|
+      counter = 0
+       @board[column].each do |chip_home|
+        if chip_home == chip
+          counter += 1
+          if counter == 4
+            return true
+          end
+        else
+          counter = 0
+        end
+      end
+    end
+    false
+  end
+   
+
 end

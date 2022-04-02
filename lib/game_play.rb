@@ -3,15 +3,13 @@ require 'pry'
 
 class GamePlay
 
-  attr_reader :connect_board, :welcome_message
+  attr_reader :connect_board
 
   def initialize(connect_board)
     @connect_board = connect_board
-    @welcome_message = "Ready for a challenge? (ง •̀_•́)ง ผ(•̀_•́ผ)"
   end
 
   def start
-    p @welcome_message
     21.times do
       player_column = get_player_column
       @connect_board.place_piece(player_column, "X")
@@ -42,7 +40,7 @@ class GamePlay
           computer_column = valid_symbols[rand(6)]
         end
       return computer_column
-  end
+    end
 
 
 

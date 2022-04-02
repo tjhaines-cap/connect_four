@@ -42,15 +42,30 @@ describe GameBoard do
   end
 
   it 'places a piece in the lowest avaliable spot in the column' do
-    connect_board = GameBoard.new
-    connect_board.place_piece(:A, "X")
-    expect(connect_board.board[:A][5]).to eq("X")
-    connect_board.place_piece(:A, "O")
-    expect(connect_board.board[:A][4]).to eq("O")
-    connect_board.place_piece(:F, "X")
-    expect(connect_board.board[:F][5]).to eq("X")
-    connect_board.place_piece(:D, "O")
-    expect(connect_board.board[:D][5]).to eq("O")
+    board = GameBoard.new
+
+    board.place_piece(:A, "X")
+    expect(board.board[:A][5]).to eq("X")
+    board.place_piece(:A, "O")
+    expect(board.board[:A][4]).to eq("O")
+    board.place_piece(:F, "X")
+    expect(board.board[:F][5]).to eq("X")
+    board.place_piece(:D, "O")
+    expect(board.board[:D][5]).to eq("O")
   end
 
+  it 'can determine a winning pattern in a column' do
+    board = GameBoard.new
+
+    expect(board.winner?("O")).to eq false
+
+    board.place_piece(:D, "O")
+    board.place_piece(:D, "O")
+    board.place_piece(:D, "O")
+    board.place_piece(:D, "O")   
+    
+    board.place_piece(:D, "X")
+    board.place_piece(:D, "X")
+    expect(board.winner?("O")).to eq true
+  end 
 end
