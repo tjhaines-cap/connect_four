@@ -10,7 +10,6 @@ class GamePlay
   end
 
   def start
-    p @welcome_message
     21.times do
       player_column = get_player_column
       @connect_board.place_piece(player_column, "X")
