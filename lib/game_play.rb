@@ -3,11 +3,10 @@ require 'pry'
 
 class GamePlay
 
-  attr_reader :connect_board, :welcome_message
+  attr_reader :connect_board
 
   def initialize(connect_board)
     @connect_board = connect_board
-    @welcome_message = "Ready for a challenge? (ง •̀_•́)ง ผ(•̀_•́ผ)"
   end
 
   def start
