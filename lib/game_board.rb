@@ -34,21 +34,21 @@ class GameBoard
   end
 
   def place_piece(column, chip)
-    row = 0
-    if @board[column][5] == "."
-      row = 5
+    row_element = 0
+    if @board[column][-1] == "."
+      row_element = 5
     else
       index = 0
-      @board[column].each do |cell|
-        index += 1
-        if (cell != ".")
+      @board[column].each do |chip_home|
+        if (chip_home != ".")
           break
         end
+        index += 1
       end
-      row = index - 2
-      puts row
+      row_element = index - 1
+      # puts row_element
     end
-    @board[column][row] = chip
+    @board[column][row_element] = chip
   end
 
 end

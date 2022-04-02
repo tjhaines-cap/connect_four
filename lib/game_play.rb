@@ -7,7 +7,7 @@ class GamePlay
 
   def initialize(connect_board)
     @connect_board = connect_board
-    @welcome_message = "Ready for a challenge?"
+    @welcome_message = "Ready for a challenge? (ง •̀_•́)ง ผ(•̀_•́ผ)"
   end
 
   def start
@@ -17,6 +17,7 @@ class GamePlay
       @connect_board.place_piece(player_column, "X")
       puts @connect_board.print_board
       #check for winner
+      puts("Computer's turn")
       computer_column = select_computer_column
       @connect_board.place_piece(computer_column, "O")
       puts @connect_board.print_board
@@ -42,5 +43,7 @@ class GamePlay
         end
       return computer_column
   end
+
+
 
 end
