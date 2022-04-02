@@ -14,12 +14,19 @@ class GamePlay
       player_column = get_player_column
       @connect_board.place_piece(player_column, "X")
       puts @connect_board.print_board
-      #check for winner
+      if @connect_board.winner?("X")
+        puts "player has won"
+        break
+      end
       puts("Computer's turn")
       computer_column = select_computer_column
       @connect_board.place_piece(computer_column, "O")
       puts @connect_board.print_board
-      #check for winner
+      if @connect_board.winner?("O")
+        puts "not-player has won"
+        break
+      end
+
     end
   end
 
