@@ -17,16 +17,17 @@ attr_reader :welcome_message
             if userin == 'p'
                 board = GameBoard.new
                 game_play = GamePlay.new(board)
+                puts board.print_board
                 game_play.start
                 p "Enter p to play. Enter q to quit."
                 userin = gets.chomp.downcase
-            else 
+            else
                 p "Try again! Enter p to play. Enter q to quit."
                 userin = gets.chomp.downcase
             end
         end
             p "Okay, bye!"
-    end 
+    end
 
-                
+
 end
