@@ -54,10 +54,10 @@ describe GameBoard do
     expect(board.board[:D][5]).to eq("O")
   end
 
-  it 'can determine a winning pattern in a column' do
+  it 'can determine a vertical winning pattern in a column' do
     board = GameBoard.new
 
-    expect(board.winner?("O")).to eq false
+    expect(board.vertical_winner?("O")).to eq false
 
     board.place_piece(:D, "O")
     board.place_piece(:D, "O")
@@ -66,6 +66,22 @@ describe GameBoard do
     
     board.place_piece(:D, "X")
     board.place_piece(:D, "X")
-    expect(board.winner?("O")).to eq true
+    expect(board.vertical_winner?("O")).to eq true
   end 
+
+  it 'can determine horizontal winning pattern' do
+    board = GameBoard.new
+
+    expect(board.horizontal_winner?("O")).to eq false
+
+    board.place_piece(:A, "O") #different column arguments than vertical
+    board.place_piece(:B, "O")
+    board.place_piece(:C, "O")
+    board.place_piece(:D, "O")   
+    
+    board.place_piece(:E, "X")
+    board.place_piece(:F, "X")
+    # require 'pry'; binding.pry
+    expect(board.horizontal_winner?("O")).to eq true
+  end
 end
