@@ -147,5 +147,14 @@ class GameBoard
     return false
   end
 
-
+  def winner?(chip)
+    if self.vertical_winner?(chip) 
+      return true
+    elsif self.horizontal_winner?(chip)
+      return true
+    elsif self.diagonal_winner?(chip)
+      return true
+    end
+    return false
+  end
 end

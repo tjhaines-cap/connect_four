@@ -83,7 +83,6 @@ describe GameBoard do
     board.place_piece(:F, "X")
     # require 'pry'; binding.pry
     expect(board.horizontal_winner?("O")).to eq true
-    expect(board.winner?("O")).to eq true
   end
 
   it "can determine a winning pattern diagonally from left side of board" do
@@ -105,7 +104,7 @@ describe GameBoard do
     board.place_piece(:D, "X")
     board.place_piece(:D, "O")
     board.place_piece(:D, "X")
-    puts board.print_board
+    # puts board.print_board
 
     expect(board.diagonal_winner?("O")).to eq true
   end
@@ -129,7 +128,23 @@ describe GameBoard do
     board.place_piece(:D, "X")
     board.place_piece(:D, "X")
     board.place_piece(:D, "O")
-    puts board.print_board
+    # puts board.print_board
     expect(board.diagonal_winner?("O")).to eq true
+  end
+
+  it 'can determine a winner' do
+    board = GameBoard.new
+
+    expect(board.winner?("O")).to eq false
+
+    board.place_piece(:A, "O") 
+    board.place_piece(:B, "O")
+    board.place_piece(:C, "O")
+    board.place_piece(:D, "O")   
+    
+    board.place_piece(:E, "X")
+    board.place_piece(:F, "X")
+   
+    expect(board.winner?("O")).to eq true
   end
 end

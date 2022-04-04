@@ -10,23 +10,28 @@ class GamePlay
   end
 
   def start
+    draw = true 
     21.times do
       player_column = get_player_column
       @connect_board.place_piece(player_column, "X")
       puts @connect_board.print_board
-      if @connect_board.diagonal_winner?("X")
-        puts "player has won"
+      if @connect_board.winner?("X")
+        puts "not-computer has won, well done!"
+        draw = false
         break
       end
       puts("Computer's turn")
       computer_column = select_computer_column
       @connect_board.place_piece(computer_column, "O")
       puts @connect_board.print_board
-      if @connect_board.diagonal_winner?("O")
+      if @connect_board.winner?("O")
         puts "not-player has won"
+        draw = false
         break
       end
-
+    end
+    if draw == true
+      puts "not-computer, not-human both did not win. DRAW."
     end
   end
 
