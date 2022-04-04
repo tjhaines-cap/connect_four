@@ -71,74 +71,52 @@ class GameBoard
   def diagonal_winner?(chip)
     #go through each row
     for i in 0..5
-      count_chips = 0
       row = i
-      # puts "start at #{row}"
-      @board.keys.each do |col|
-        #do not allow loop to continue if row has been decremented past 0
-        if row < 0
-          break
-        end
-        #check downward diagonal if starting in rows 0-2
-        if i <=2
-          if @board[col][row] == chip
-            count_chips += 1
-            if count_chips == 4
-              return true
-            end
-          else
-            count_chips = 0
-          end
-          row += 1
-        #check upward diagonal if starting in rows 3-5
-        else
-          if @board[col][row] == chip
-            count_chips += 1
-            # puts "chip at #{col} and #{row}"
-            if count_chips == 4
-              return true
-            end
-          else
-            count_chips = 0
-          end
-          row = row - 1
-        end
+      keys = @board.keys
+      if check_diagonal_columns?(keys, row, i, chip)
+        return true
       end
     end
     for i in 0..5
-      count_chips = 0
       row = i
-      # puts "start at #{row}"
       keys_reversed = @board.keys.reverse
-      keys_reversed.each do |col|
-        #do not allow loop to continue if row has been decremented past 0
-        if row < 0
-          break
-        end
-        #check downward diagonal if starting in rows 0-2
-        if i <=2
-          if @board[col][row] == chip
-            count_chips += 1
-            if count_chips == 4
-              return true
-            end
-          else
-            count_chips = 0
+      if check_diagonal_columns?(keys_reversed, row, i, chip)
+        return true
+      end
+    end
+    return false
+  end
+
+  def check_diagonal_columns?(column_array, row, i, chip)
+    count_chips = 0
+    column_array.each do |col|
+      #do not allow loop to continue if row has been decremented past 0
+      if row < 0 || row > 5
+        break
+      end
+      #check downward diagonal if starting in rows 0-2
+      if i <=2
+        if @board[col][row] == chip
+          count_chips += 1
+          if count_chips == 4
+            return true
           end
-          row += 1
-        #check upward diagonal if starting in rows 3-5
         else
-          if @board[col][row] == chip
-            count_chips += 1
-            # puts "chip at #{col} and #{row}"
-            if count_chips == 4
-              return true
-            end
-          else
-            count_chips = 0
-          end
-          row = row - 1
+          count_chips = 0
         end
+        row += 1
+      #check upward diagonal if starting in rows 3-5
+      else
+        if @board[col][row] == chip
+          count_chips += 1
+          # puts "chip at #{col} and #{row}"
+          if count_chips == 4
+            return true
+          end
+        else
+          count_chips = 0
+        end
+        row = row - 1
       end
     end
     return false
