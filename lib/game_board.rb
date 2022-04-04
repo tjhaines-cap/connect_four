@@ -51,12 +51,37 @@ class GameBoard
     @board[column][row_element] = chip
   end
 
-  def winner?(chip)
+  def vertical_winner?(chip)
     @board.keys.each do |column|
       counter = 0
        @board[column].each do |chip_home|
         if chip_home == chip
           counter += 1
+          if counter == 4
+            return true
+          end
+        else
+          counter = 0
+        end
+      end
+    end
+    false
+  end
+
+  def horizontal_winner?(chip)
+ #4 elements in adjoining columns need to have the same chip at the same index
+    #track chip status with a counter - counter = 0
+ #how to get the info about the status of each element in an array?
+    #go through each individual column (board[:column] - would tell you the value, so board.keys?) and ask what lives there, if it's a chip and if the chips index is the same as it's neighbors index - start the counter. if the counter gets to 4 then player has scored a horizontal win
+      #if column[value] == chip then chip += 1
+      #to check each row - start at the bottom work up
+      #go through one index in each column row.reverse to check for condition
+    row_indices = [5,4,3,2,1,0]
+    row_indices.each do |row_index|
+      counter = 0
+      @board.keys.each do |column|
+        if @board[column][row_index] == chip
+          counter +=1 
           if counter == 4
             return true
           end
