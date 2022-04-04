@@ -8,7 +8,7 @@ describe Setup do
     it 'exists' do
         connect_board = GameBoard.new
         new_game = GamePlay.new(connect_board)
-        setup = Setup.new(new_game)
+        setup = Setup.new
 
         expect(setup).to be_an_instance_of(Setup)
     end 
@@ -16,7 +16,7 @@ describe Setup do
     it 'has a main menu' do
         connect_board = GameBoard.new
         new_game = GamePlay.new(connect_board)
-        setup = Setup.new(new_game)
+        setup = Setup.new
         
 
         expect(setup.welcome_message).to eq("Welcome to CONNECT FOUR")
