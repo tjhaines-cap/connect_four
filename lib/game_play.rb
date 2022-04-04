@@ -52,7 +52,7 @@ class GamePlay
           computer_column = valid_symbols[rand(6)]
         end
       return computer_column
-    end
+  end
 
 
 
