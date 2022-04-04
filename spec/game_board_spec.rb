@@ -69,7 +69,7 @@ describe GameBoard do
     expect(board.winner?("O")).to eq true
   end
 
-  it "can determine a winning pattern diagonally" do
+  it "can determine a winning pattern diagonally from left side of board" do
     board = GameBoard.new
 
     expect(board.diagonal_winner?("O")).to eq false
@@ -89,8 +89,30 @@ describe GameBoard do
     board.place_piece(:D, "O")
     board.place_piece(:D, "X")
     puts board.print_board
+
     expect(board.diagonal_winner?("O")).to eq true
+  end
 
+  it "can determine winner diagonally from right side of board" do
+    board = GameBoard.new
 
+    expect(board.diagonal_winner?("O")).to eq false
+
+    board.place_piece(:G, "O")
+    board.place_piece(:G, "O")
+    board.place_piece(:G, "O")
+    board.place_piece(:G, "X")
+    board.place_piece(:F, "X")
+    board.place_piece(:F, "O")
+    board.place_piece(:F, "O")
+    board.place_piece(:E, "X")
+    board.place_piece(:E, "O")
+    board.place_piece(:E, "O")
+    board.place_piece(:D, "O")
+    board.place_piece(:D, "X")
+    board.place_piece(:D, "X")
+    board.place_piece(:D, "O")
+    puts board.print_board
+    expect(board.diagonal_winner?("O")).to eq true
   end
 end

@@ -73,7 +73,7 @@ class GameBoard
     for i in 0..5
       count_chips = 0
       row = i
-      puts "start at #{row}"
+      # puts "start at #{row}"
       @board.keys.each do |col|
         #do not allow loop to continue if row has been decremented past 0
         if row < 0
@@ -94,7 +94,43 @@ class GameBoard
         else
           if @board[col][row] == chip
             count_chips += 1
-            puts "chip at #{col} and #{row}"
+            # puts "chip at #{col} and #{row}"
+            if count_chips == 4
+              return true
+            end
+          else
+            count_chips = 0
+          end
+          row = row - 1
+        end
+      end
+    end
+    for i in 0..5
+      count_chips = 0
+      row = i
+      # puts "start at #{row}"
+      keys_reversed = @board.keys.reverse
+      keys_reversed.each do |col|
+        #do not allow loop to continue if row has been decremented past 0
+        if row < 0
+          break
+        end
+        #check downward diagonal if starting in rows 0-2
+        if i <=2
+          if @board[col][row] == chip
+            count_chips += 1
+            if count_chips == 4
+              return true
+            end
+          else
+            count_chips = 0
+          end
+          row += 1
+        #check upward diagonal if starting in rows 3-5
+        else
+          if @board[col][row] == chip
+            count_chips += 1
+            # puts "chip at #{col} and #{row}"
             if count_chips == 4
               return true
             end
