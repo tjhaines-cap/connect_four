@@ -37,10 +37,10 @@ class GamePlay
 
   def get_player_column
     puts "Choose a column A-G by typing out the associated letter"
-    player_column = gets.chomp.to_sym
+    player_column = gets.chomp.upcase.to_sym
     until @connect_board.column_available?(player_column)
       p "Invalid input entered, try again!"
-      player_column = gets.chomp.to_sym
+      player_column = gets.chomp.upcase.to_sym
     end
     return player_column
   end

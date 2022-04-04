@@ -3,11 +3,10 @@ require './lib/game_play'
 
 class Setup
 
-attr_reader :welcome_message, :new_game
+attr_reader :welcome_message
 
-    def initialize(new_game)
+    def initialize
         @welcome_message = "Welcome to CONNECT FOUR"
-        @new_game = new_game
     end
 
     def main_menu
@@ -16,7 +15,9 @@ attr_reader :welcome_message, :new_game
             userin = gets.chomp.downcase
            until userin == 'q'
             if userin == 'p'
-                @new_game.start
+                board = GameBoard.new
+                game_play = GamePlay.new(board)
+                game_play.start
                 p "Enter p to play. Enter q to quit."
                 userin = gets.chomp.downcase
             else 
