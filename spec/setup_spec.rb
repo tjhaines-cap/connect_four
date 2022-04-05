@@ -17,14 +17,4 @@ describe Setup do
         expect(setup.welcome_message).to eq("Welcome to CONNECT FOUR")
     end
 
-    it 'can create valid computer input' do
-      board = GameBoard.new
-      setup = Setup.new
-
-      computer_column = setup.select_computer_column(board)
-
-      valid_symbols = [:A, :B, :C, :D, :E, :F, :G]
-
-      expect(valid_symbols).to include(computer_column)
-    end
 end
