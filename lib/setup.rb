@@ -3,10 +3,11 @@ require './lib/turn'
 
 class Setup
 
-attr_reader :welcome_message
+attr_reader :welcome_message, :name
 
-    def initialize
-        @welcome_message = "Welcome to CONNECT FOUR"
+    def initialize(name)
+        @welcome_message = "Welcome to CONNECT FOUR #{name}"
+        @name = name
     end
 
     def main_menu
@@ -32,13 +33,13 @@ attr_reader :welcome_message
       def start(board)
         draw = true
         21.times do
-          player_turn = Turn.new(board)
+          player_turn = Turn.new(board, @name)
           player_turn.player_turn
           if player_turn.has_won?("X")
             draw = false
             break
           end
-          computer_turn = Turn.new(board)
+          computer_turn = Turn.new(board, "Robot")
           computer_turn.computer_turn
           if computer_turn.has_won?("O")
             draw = false

@@ -3,8 +3,11 @@ require 'csv'
 
 class Turn
 
-  def initialize(board)
+  attr_reader :name
+  
+  def initialize(board, name)
     @board = board
+    @name = name
   end
 
   def player_turn
