@@ -6,16 +6,10 @@ class Turn
     @board = board
   end
 
-
   def player_turn
     player_column = get_player_column
     @board.place_piece(player_column, "X")
     puts @board.print_board
-    # if @board.winner?("X")
-    #   puts "You have won, well done!"
-    #   draw = false
-    #   return true
-    # end
   end
 
   def computer_turn
@@ -23,11 +17,6 @@ class Turn
     computer_column = select_computer_column
     @board.place_piece(computer_column, "O")
     puts @board.print_board
-    # if @board.winner?("O")
-    #   puts "Not-You has won, sad day for you"
-    #   draw = false
-    #   break
-    # end
   end
 
   def has_won?(chip)

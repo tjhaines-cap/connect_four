@@ -38,29 +38,12 @@ attr_reader :welcome_message
             draw = false
             break
           end
-          # player_column = get_player_column(board)
-          # board.place_piece(player_column, "X")
-          # puts board.print_board
-          # if board.winner?("X")
-          #   puts "You have won, well done!"
-          #   draw = false
-          #   break
-          # end
           computer_turn = Turn.new(board)
           computer_turn.computer_turn
           if computer_turn.has_won?("O")
             draw = false
             break
           end
-          # puts("Computer's turn")
-          # computer_column = select_computer_column(board)
-          # board.place_piece(computer_column, "O")
-          # puts board.print_board
-          # if board.winner?("O")
-          #   puts "Not-You has won, sad day for you"
-          #   draw = false
-          #   break
-          # end
         end
         if draw
           puts "Not Not-You and You both did not win. DRAW."
