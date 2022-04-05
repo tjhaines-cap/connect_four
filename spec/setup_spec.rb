@@ -13,7 +13,6 @@ describe Setup do
     it 'has a main menu' do
         setup = Setup.new
 
-
         expect(setup.welcome_message).to eq("Welcome to CONNECT FOUR")
     end
 

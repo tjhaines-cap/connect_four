@@ -1,4 +1,5 @@
 require './lib/game_board'
+require 'csv'
 
 class Turn
 
@@ -23,9 +24,15 @@ class Turn
     if @board.winner?(chip)
       if chip == "O"
         puts "Not-You has won, sad day for you"
+        CSV.open("lib/win_loss_tracker.csv", "a") do |csv|
+          csv << ["Computer win", 1]
+        end
         return true
       else
         puts "You have won, well done!"
+        CSV.open("lib/win_loss_tracker.csv", "a") do |csv|
+          csv << ["Player win"]
+        end
         return true
       end
     else
