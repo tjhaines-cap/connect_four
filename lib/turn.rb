@@ -1,9 +1,13 @@
 require './lib/game_board'
+require 'csv'
 
 class Turn
 
-  def initialize(board)
+  attr_reader :name
+  
+  def initialize(board, name)
     @board = board
+    @name = name
   end
 
   def player_turn
@@ -23,9 +27,17 @@ class Turn
     if @board.winner?(chip)
       if chip == "O"
         puts "Not-You has won, sad day for you"
+        self.add_to_csv("Robot")
+        # CSV.open("lib/win_loss_tracker.csv", "a") do |csv|
+        #   csv << ["Computer win"]
+        # end
         return true
       else
-        puts "You have won, well done!"
+        puts "#{@name} won, well done!"
+        self.add_to_csv(@name)
+        # CSV.open("lib/win_loss_tracker.csv", "a") do |csv|
+        #   csv << ["#{@name} win"]
+        # end
         return true
       end
     else
@@ -50,6 +62,34 @@ class Turn
           computer_column = valid_symbols[rand(6)]
         end
       return computer_column
+  end
+
+  def add_to_csv(name)
+    CSV.open("lib/win_loss_tracker.csv", "a+") do |csv|
+      # csv << ["#{name} win"]
+      # csv.each do |row|
+      repeaters = csv.find_all do |row|
+        row[0] == name
+        # if row[0] == name
+        #   #retrieve value associated with name
+        #   current_score = row[1].to_i 
+        #   current_score += 1
+        #   csv << [name, current_score]
+        #   # row[1] = current_score
+        #   p "Your current score is #{current_score}"
+        #   return 
+        # end
+      end
+      if repeaters.length > 0 
+        current_score = repeaters.last[1].to_i #accesses score via index with array of [name, score]
+          current_score += 1
+          csv << [name, current_score]
+          # row[1] = current_score
+          puts "Your current win streak is #{current_score}"
+      else 
+        csv << [name, 1]
+      end
+    end
   end
 
 end

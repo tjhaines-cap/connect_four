@@ -6,14 +6,21 @@ describe Turn do
 
   it 'exists' do
     board = GameBoard.new
-    computer_turn = Turn.new(board)
+    computer_turn = Turn.new(board, "Robot")
 
     expect(computer_turn).to be_an_instance_of(Turn)
   end
 
+  it 'has attributes' do
+    board = GameBoard.new
+    computer_turn = Turn.new(board, "Robot")
+
+    expect(computer_turn.name).to eq "Robot"
+  end
+
   it 'can create valid computer input' do
     board = GameBoard.new
-    computer_turn = Turn.new(board)
+    computer_turn = Turn.new(board, "Robot")
 
     computer_column = computer_turn.select_computer_column
 
@@ -24,7 +31,7 @@ describe Turn do
 
   it 'can determine if someone won the game' do
     board = GameBoard.new
-    computer_turn = Turn.new(board)
+    computer_turn = Turn.new(board, "Robot")
 
     expect(computer_turn.has_won?("O")).to eq false
 
@@ -36,7 +43,6 @@ describe Turn do
     board.place_piece(:D, "X")
 
     expect(computer_turn.has_won?("O")).to eq true
-
   end
 
 
