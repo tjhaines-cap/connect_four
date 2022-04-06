@@ -85,7 +85,7 @@ class Turn
           current_score += 1
           csv << [name, current_score]
           # row[1] = current_score
-          p "Your current score is #{current_score}"
+          puts "Your current win streak is #{current_score}"
       else 
         csv << [name, 1]
       end
