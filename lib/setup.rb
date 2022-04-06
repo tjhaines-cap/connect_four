@@ -6,7 +6,7 @@ class Setup
 attr_reader :welcome_message, :name
 
     def initialize(name)
-        @welcome_message = "Welcome to CONNECT FOUR #{name}"
+        @welcome_message = "Welcome to CONNECT FOUR, #{name}"
         @name = name
     end
 
