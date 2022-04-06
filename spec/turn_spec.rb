@@ -43,7 +43,6 @@ describe Turn do
     board.place_piece(:D, "X")
 
     expect(computer_turn.has_won?("O")).to eq true
-
   end
 
 

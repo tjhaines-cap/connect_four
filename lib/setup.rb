@@ -11,6 +11,7 @@ attr_reader :welcome_message, :name
     end
 
     def main_menu
+        # require 'pry'; binding.pry
         puts @welcome_message
         puts "Enter p to play. Enter q to quit."
         userin = gets.chomp.downcase
@@ -49,6 +50,10 @@ attr_reader :welcome_message, :name
         if draw
           puts "Not Not-You and You both did not win. DRAW."
         end
+      end
+
+      def winning_percentage
+
       end
 
 end
